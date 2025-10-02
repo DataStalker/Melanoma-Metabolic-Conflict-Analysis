@@ -39,8 +39,6 @@ geo_clinical <- geo_clinical_raw %>%
   
   # =========================================================================
 # THE CRITICAL FIX IS HERE
-# Based on our diagnostic, we now know that Responders (CR+PR) are
-# coded as a single category "PRCR". We update the logic accordingly.
 # =========================================================================
 mutate(
   response_binary = case_when(
@@ -80,3 +78,4 @@ message("\nBreakdown of patient responses in the final clinical file:")
 print(table(final_clin_check$response_binary))
 
 message("\nYou can now run the main analysis script again.")
+
