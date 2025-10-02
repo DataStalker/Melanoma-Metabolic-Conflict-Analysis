@@ -1,4 +1,4 @@
-# Portfolio Project: Biomarker Analysis in Melanoma
+# Biomarker Analysis in Melanoma
 
 ### [View the Full Study on bioRxiv](https://www.biorxiv.org/content/10.1101/2025.09.28.679008v1)
 
