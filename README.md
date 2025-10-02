@@ -37,7 +37,7 @@ This repository showcases the key outputs and the R code used to generate them.
 The "Favorable" group (Low Gln/High IFNg) showed a non-significant trend towards improved survival.
 *(log-rank p = 0.081)*
 
-![Kaplan-Meier Plot](final_outputs/Figure1_TCGA_Survival.png)
+![Kaplan-Meier Plot](final_outputs/Figure1_TCGA_Survival_Plot.png)
 
 ### Figure 2: Predictive Value in GEO Cohort (n=49)
 
