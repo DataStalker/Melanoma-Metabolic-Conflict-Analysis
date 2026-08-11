@@ -1,0 +1,5 @@
+"comparison","patients","spearman_rho","conf.low","conf.high","p.value"
+"Candidate: malignant glutamine vs immune IFNG",15,-0.385714285714286,-0.842498041264037,0.255955452895562,0.15563079458596
+"Candidate: malignant glutamine vs malignant IFNG",15,-0.125,-0.634394032745159,0.44062110854993,0.65713566818695
+"Curated: malignant glutamine vs immune IFNG",15,-0.142857142857143,-0.657670761670762,0.506584926691246,0.611522228764465
+"Curated: malignant glutamine vs malignant IFNG",15,0.403571428571428,-0.135648573602506,0.780683238789117,0.135767996503656

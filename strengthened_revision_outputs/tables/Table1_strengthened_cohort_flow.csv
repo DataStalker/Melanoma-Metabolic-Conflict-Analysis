@@ -1,0 +1,5 @@
+"cohort","role","available","primary_analysis","events_or_responders"
+"TCGA-SKCM","Discovery survival and deconvolution",469,417,194
+"GSE65904","Independent survival validation",214,203,99
+"GSE91061","Exploratory immunotherapy response",49,49,10
+"GSE72056","Single-cell localization",19,19,NA

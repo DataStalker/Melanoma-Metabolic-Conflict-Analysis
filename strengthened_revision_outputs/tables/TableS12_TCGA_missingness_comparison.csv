@@ -1,0 +1,17 @@
+"comparison","variable","included_n","included_summary","excluded_n","excluded_summary","p.value"
+"OS-eligible vs expression-only","gln_z",453,"0.03 [-0.75, 0.77]",16,"0.01 [-0.26, 0.55]",0.89324781544279
+"OS-eligible vs expression-only","ifng_z",453,"0.05 [-1.01, 1.00]",16,"-0.51 [-0.84, 0.32]",0.240403883948339
+"OS-eligible vs expression-only","age",453,"58.00 [48.00, 71.00]",8,"55.00 [46.50, 61.75]",0.59226846450335
+"OS-eligible vs expression-only","purity",445,"0.70 [0.49, 0.85]",16,"0.58 [0.45, 0.73]",0.170797374111955
+"OS-eligible vs expression-only","gender",453,"Female: 173 (38.2%); Male: 280 (61.8%)",16,"Female: 7 (43.8%); Male: 9 (56.2%)",0.794508276192529
+"OS-eligible vs expression-only","stage",453,"Early (0/I/II): 226 (49.9%); Late (III/IV): 191 (42.2%); NA: 36 (7.9%)",16,"Early (0/I/II): 12 (75.0%); Late (III/IV): 2 (12.5%); NA: 2 (12.5%)",0.0348965103489651
+"OS-eligible vs expression-only","sample_type",453,"Primary: 105 (23.2%); Metastatic: 342 (75.5%); NA: 6 (1.3%)",16,"Primary: 1 (6.2%); Metastatic: 15 (93.8%); NA: 0 (0.0%)",0.296170382961704
+"Primary multivariable vs OS-only","gln_z",417,"0.03 [-0.74, 0.77]",36,"0.01 [-1.19, 0.73]",0.518574315131181
+"Primary multivariable vs OS-only","ifng_z",417,"0.03 [-1.00, 0.97]",36,"0.48 [-1.05, 1.12]",0.427102755060358
+"Primary multivariable vs OS-only","age",417,"59.00 [48.00, 71.00]",36,"51.00 [45.75, 67.50]",0.250681285474216
+"Primary multivariable vs OS-only","purity",409,"0.70 [0.49, 0.85]",36,"0.69 [0.54, 0.85]",0.840350047489782
+"Primary multivariable vs OS-only","os_time",417,"1035.00 [478.00, 2193.00]",36,"1546.00 [950.50, 4318.00]",0.025491963814545
+"Primary multivariable vs OS-only","gender",417,"Female: 158 (37.9%); Male: 259 (62.1%)",36,"Female: 15 (41.7%); Male: 21 (58.3%)",0.721454463215649
+"Primary multivariable vs OS-only","stage",417,"Early (0/I/II): 226 (54.2%); Late (III/IV): 191 (45.8%); NA: 0 (0.0%)",36,"Early (0/I/II): 0 (0.0%); Late (III/IV): 0 (0.0%); NA: 36 (100.0%)",9.99900009999e-05
+"Primary multivariable vs OS-only","sample_type",417,"Primary: 99 (23.7%); Metastatic: 312 (74.8%); NA: 6 (1.4%)",36,"Primary: 6 (16.7%); Metastatic: 30 (83.3%); NA: 0 (0.0%)",0.637036296370363
+"Primary multivariable vs OS-only","os_event",417,"0: 223 (53.5%); 1: 194 (46.5%)",36,"0: 17 (47.2%); 1: 19 (52.8%)",0.491127515708381

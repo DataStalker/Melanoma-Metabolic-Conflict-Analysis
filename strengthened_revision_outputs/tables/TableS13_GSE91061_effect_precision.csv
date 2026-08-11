@@ -1,0 +1,8 @@
+"model","term","odds_ratio","conf.low","conf.high","p.value","compatible_decrease","compatible_increase"
+"Candidate signatures - additive","gln_z",0.697069854272527,0.321754663863101,1.40479441388851,0.318620215142099,TRUE,TRUE
+"Candidate signatures - additive","ifng_z",1.1350301160933,0.563781678630101,2.35131423854306,0.721959146543182,TRUE,TRUE
+"Candidate signatures - exploratory interaction","gln_z",0.732002234477856,0.319874123063449,1.59808759575786,0.427231790258898,TRUE,TRUE
+"Candidate signatures - exploratory interaction","ifng_z",1.01669124558137,0.435679789449478,2.20978086172568,0.966863424678434,TRUE,TRUE
+"Candidate signatures - exploratory interaction","gln_z:ifng_z",0.680213843369975,0.278733565678621,1.42552443042187,0.323249214011055,TRUE,TRUE
+"Curated signatures - additive","curated_gln_z",0.982009308115696,0.463284288288874,1.97591286864018,0.95972413629615,TRUE,TRUE
+"Curated signatures - additive","curated_ifng_z",1.36156531751043,0.653011871293155,2.92330103413352,0.406853998200629,TRUE,TRUE
