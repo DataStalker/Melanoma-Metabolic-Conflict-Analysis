@@ -1,71 +1,61 @@
-# Biomarker Analysis in Melanoma
+# Cellular composition of the glutamine–IFN-γ axis in melanoma
 
-### [View the Full Study on bioRxiv](https://www.biorxiv.org/content/10.1101/2025.09.28.679008v1)
+This repository contains the reproducible analysis supporting:
 
----
+> **Cellular Composition Accounts for Much of the Bulk Glutamine–IFN-γ Transcriptional Axis in Melanoma: A Cross-Cohort and Single-Cell Analysis**
 
-## 1. Project Goal
+Author: **Islam Asal**  
+ORCID: [0009-0004-3187-7945](https://orcid.org/0009-0004-3187-7945)  
+Preprint: [bioRxiv 10.1101/2025.09.28.679008](https://doi.org/10.1101/2025.09.28.679008)
 
-This project is a complete case study in bioinformatics biomarker discovery, from hypothesis to a definitive, publication-ready conclusion.
+## Main findings
 
-**The Goal:** To test the "metabolic conflict" hypothesis in melanoma, investigating if a signature based on glutamine and IFNγ gene expression could predict patient survival or response to immunotherapy.
+- The candidate glutamine-associated and IFN-γ-associated scores are inversely correlated in bulk TCGA melanoma RNA profiles.
+- The correlation is strongly attenuated after adjustment for tumor purity and immune/stromal composition and is essentially absent after MCP-counter adjustment.
+- Patient-level single-cell analysis localizes higher glutamine-associated transcription to malignant cells and higher IFN-γ-associated transcription to immune compartments.
+- IFN-γ-associated transcription is favorably prognostic in TCGA-SKCM and independently in GSE65904.
+- Glutamine-associated transcription and its interaction with IFN-γ do not provide stable, replicated incremental outcome information.
+- GSE91061 contains only 49 pretreatment tumors and 10 responders; it does not support response discrimination and can detect only very large effects.
 
-**The Approach:** The analysis was conducted end-to-end in R, involving data acquisition and processing, advanced statistical modeling, and publication-quality data visualization.
+These results support a cellular-composition interpretation of the bulk transcriptional axis. They do not establish causal nutrient competition or treatment-predictive utility.
 
-## 2. Data Sourcing and Processing
+## Reproduce the analysis
 
-To ensure a rigorous analysis, two independent patient cohorts were used:
+Run the scripts in this order from the project root:
 
-*   **Discovery Cohort (TCGA):** RNA-Seq (TPM) and clinical data for **469** skin cutaneous melanoma (TCGA-SKCM) patients were acquired from the GDC Data Portal using the R/Bioconductor package `TCGAbiolinks`. This cohort was used to assess the signature's prognostic value.
+1. `scripts/05_acquire_strengthening_data.R`
+2. `scripts/04_revised_analysis.R`
+3. `scripts/06_strengthened_analysis.R`
 
-*   **Validation Cohort (GEO):** Pre-treatment RNA-Seq (FPKM) and clinical response data for **49** metastatic melanoma patients receiving anti-PD-1 immunotherapy were sourced from the Gene Expression Omnibus (GEO accession: GSE91061). This cohort was used to validate the signature's predictive value.
+`scripts/build_strengthened_manuscript.py` regenerates the formatted manuscript from the analysis outputs.
 
-The R scripts in the `/R_scripts` folder document the entire process, including data cleaning, normalization, and the GSVA (Gene Set Variation Analysis) used to calculate the signature scores.
+The analysis scripts use paths relative to their project directory. Exact R package versions are recorded in the supplied `sessionInfo.txt` files.
 
-## 3. The Final Conclusion
+## Repository structure
 
-The signature failed to provide independent prognostic or predictive value. While a promising trend was observed in the discovery cohort, the biomarker was not statistically significant after adjusting for clinical variables and failed validation in an independent immunotherapy cohort.
+- `scripts/`: acquisition, analysis, and manuscript-generation code.
+- `revision_outputs/`: corrected TCGA-SKCM and GSE91061 results.
+- `strengthened_revision_outputs/`: GSE65904 validation, deconvolution, single-cell, missingness, and power results.
+- `external_data/strengthened/download_manifest.csv`: source URLs, file sizes, and MD5 checksums for externally acquired files.
 
-This repository showcases the key outputs and the R code used to generate them.
+All manuscript estimates are available in machine-readable CSV files. Large public source datasets are not duplicated in this repository.
 
----
+## Public datasets
 
-## 4. Key Outputs
+- TCGA-SKCM: NCI Genomic Data Commons and TCGA Pan-Cancer Clinical Data Resource.
+- GSE65904: independent melanoma disease-specific survival cohort.
+- GSE91061: pretreatment nivolumab melanoma cohort.
+- GSE72056: single-cell metastatic melanoma cohort.
 
-### Figure 1: Prognostic Value in TCGA Cohort (n=313)
+## Analysis safeguards
 
-The "Favorable" group (Low Gln/High IFNg) showed a non-significant trend towards improved survival.
-*(log-rank p = 0.081)*
+- Continuous standardized scores are the primary estimands; median-defined groups are descriptive only.
+- EPIC nonconverged samples are flagged and excluded from EPIC-based inference.
+- Single-cell inference uses patient-level compartment summaries, not individual cells as independent replicates.
+- The nominal candidate interaction in GSE65904 is treated as exploratory because it does not replicate in TCGA or with curated signatures.
+- Immunotherapy-response associations are not described as treatment-predictive because no untreated comparator is available.
 
-![Kaplan-Meier Plot](final_outputs/Figure1_TCGA_Survival_Plot.png)
+## Citation
 
-### Figure 2: Predictive Value in GEO Cohort (n=49)
+Please cite the bioRxiv article and the archived Zenodo software release. The Zenodo DOI will be added here after the first GitHub release is archived.
 
-The signature showed no ability to predict response to anti-PD-1 immunotherapy.
-*(Chi-squared p = 0.706)*
-
-![Response Rate Plot](final_outputs/Figure2_GEO_Response_Plot.png)
-
-### Table 1: Final Multivariable Survival Model (TCGA)
-
-After adjusting for clinical factors like age and tumor stage, neither the glutamine score, the IFNγ score, nor their interaction were significant independent predictors of survival.
-
-| Predictor                  | Hazard Ratio (HR) | P-value |
-| -------------------------- | ----------------- | ------- |
-| Glutamine Score            | 0.576             | 0.460   |
-| IFNγ Response Score        | 0.368             | 0.095   |
-| **Age (per year)**         | **1.030**         | **0.019**   |
-| Gender (Male vs. Female)   | 0.887             | 0.707   |
-| Tumor Stage (Late vs. Early) | 1.038             | 0.904   |
-| Interaction Term           | 0.326             | 0.378   |
-
-*A simplified summary of the final Cox proportional hazards model. Full results are in the `final_outputs` folder. Note: The Hazard Ratios for the signature scores are from a univariate model for clarity.*
-
----
-
-## 5. About This Repository
-
--   `/R_scripts`: Contains the R code for the data processing and final analysis pipeline. The code demonstrates skills in data wrangling (`TCGAbiolinks`, `GEOquery`), GSVA, survival analysis, and advanced `ggplot2` visualization.
--   `/final_outputs`: Contains a collection of the key figures and summary tables generated by the analysis.
-
-*This repository is for portfolio and demonstration purposes. It showcases the final analysis code and results. The full set of input data files are available upon request.*

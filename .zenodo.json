@@ -1,0 +1,32 @@
+{
+  "creators": [
+    {
+      "name": "Asal, Islam",
+      "orcid": "0009-0004-3187-7945",
+      "affiliation": "OncoMetrika",
+      "type": "ProjectMember"
+    }
+  ],
+  "title": "Cellular Composition Accounts for Much of the Bulk Glutamine–IFN-γ Transcriptional Axis in Melanoma: Analysis Code and Results",
+  "description": "Reproducible R analysis, machine-readable results, and figures supporting a cross-cohort and patient-level single-cell evaluation of glutamine-associated and IFN-γ-associated transcription in melanoma.",
+  "version": "2.0.0",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://doi.org/10.1101/2025.09.28.679008",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-preprint"
+    }
+  ],
+  "keywords": [
+    "melanoma",
+    "glutamine metabolism",
+    "interferon gamma",
+    "single-cell RNA sequencing",
+    "tumor microenvironment",
+    "survival analysis",
+    "immunotherapy"
+  ],
+  "upload_type": "software",
+  "language": "eng"
+}
