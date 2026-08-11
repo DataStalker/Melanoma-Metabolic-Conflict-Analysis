@@ -1,0 +1,5 @@
+"conflict_group","N","age_median","age_q1","age_q3","male_n","female_n","early_stage_n","late_stage_n","stage_missing_n","primary_n","metastatic_n","sample_type_missing_n"
+"Low Gln / High IFNG",153,56.5,46,71,92,61,68,70,15,18,134,1
+"High Gln / High IFNG",81,58,48,67,44,37,48,27,6,26,54,1
+"Low Gln / Low IFNG",82,60,52,70,56,26,45,34,3,19,59,4
+"High Gln / Low IFNG",153,60,48,72.75,97,56,77,62,14,43,110,0

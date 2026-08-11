@@ -1,0 +1,5 @@
+"signature","defined_genes","tcga_mapped","geo_mapped"
+"candidate_glutamine",22,22,22
+"candidate_ifng",23,22,22
+"reactome_glutamine",14,14,14
+"hallmark_ifng",200,199,198

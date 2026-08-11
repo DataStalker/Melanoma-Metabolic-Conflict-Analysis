@@ -1,0 +1,5 @@
+"analysis_stage","n","events"
+"Expression cohort",469,NA
+"Curated OS available with positive time",453,213
+"Clinical-covariate Cox model",417,194
+"Purity/sample-type sensitivity model",409,190

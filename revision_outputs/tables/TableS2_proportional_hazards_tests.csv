@@ -1,0 +1,28 @@
+"model","term","chisq","df","p"
+"Unadjusted","gln_z",1.06196977720398,1,0.30276635407241
+"Unadjusted","ifng_z",2.72679583519424,1,0.0986770761391276
+"Unadjusted","gln_z:ifng_z",0.0771450807043465,1,0.781204250463851
+"Unadjusted","GLOBAL",2.93075935662089,3,0.402424383927012
+"Clinical covariates","gln_z",0.874494409002832,1,0.349714063811938
+"Clinical covariates","ifng_z",4.26297688560508,1,0.0389516056276813
+"Clinical covariates","age10",0.24861150135955,1,0.618054463290954
+"Clinical covariates","gender",0.900273306514625,1,0.342708438204446
+"Clinical covariates","stage",3.78768021638306,1,0.0516311587139305
+"Clinical covariates","gln_z:ifng_z",0.182269716336169,1,0.66942989464033
+"Clinical covariates","GLOBAL",10.7399549172549,6,0.0967536886948693
+"Clinical + purity/sample type","gln_z",0.554579945863272,1,0.45645234573256
+"Clinical + purity/sample type","ifng_z",3.84121594713611,1,0.0500072429128651
+"Clinical + purity/sample type","age10",0.136079292107333,1,0.712210262929561
+"Clinical + purity/sample type","gender",1.03555356382863,1,0.308857854953434
+"Clinical + purity/sample type","stage",4.1934461116272,1,0.0405805273060314
+"Clinical + purity/sample type","purity",0.0303795256320319,1,0.861631873255942
+"Clinical + purity/sample type","sample_type",0.53401301170677,1,0.464924575171899
+"Clinical + purity/sample type","gln_z:ifng_z",0.0952489811664067,1,0.757607306050543
+"Clinical + purity/sample type","GLOBAL",11.6380853438384,8,0.168096697857771
+"Curated signatures + clinical covariates","curated_gln_z",0.86628968059819,1,0.351984533969391
+"Curated signatures + clinical covariates","curated_ifng_z",2.83475951672537,1,0.0922446096055465
+"Curated signatures + clinical covariates","age10",0.179474750561579,1,0.671825020665393
+"Curated signatures + clinical covariates","gender",0.523247025662292,1,0.469459870318311
+"Curated signatures + clinical covariates","stage",3.25195129566243,1,0.0713384837563022
+"Curated signatures + clinical covariates","curated_gln_z:curated_ifng_z",1.01903715172086,1,0.312747508372282
+"Curated signatures + clinical covariates","GLOBAL",8.0226140908784,6,0.236451218321346
