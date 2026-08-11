@@ -1,0 +1,205 @@
+REVISED MELANOMA ANALYSIS REPORT
+================================
+
+                           analysis_stage   n events
+1                       Expression cohort 469     NA
+2 Curated OS available with positive time 453    213
+3            Clinical-covariate Cox model 417    194
+4    Purity/sample-type sensitivity model 409    190
+
+Signature mapping:
+            signature defined_genes tcga_mapped geo_mapped
+1 candidate_glutamine            22          22         22
+2      candidate_ifng            23          22         22
+3  reactome_glutamine            14          14         14
+4       hallmark_ifng           200         199        198
+
+Candidate-score correlation:
+
+	Pearson's product-moment correlation
+
+data:  tcga$gln_z and tcga$ifng_z
+t = -9.3418, df = 467, p-value < 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4704403 -0.3176656
+sample estimates:
+       cor 
+-0.3967974 
+
+
+Purity/sample-type-adjusted residual correlation:
+
+	Pearson's product-moment correlation
+
+data:  gln_resid and ifng_resid
+t = -4.7893, df = 459, p-value = 2.262e-06
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.3034424 -0.1294108
+sample estimates:
+       cor 
+-0.2181603 
+
+
+Curated-signature correlation:
+
+	Pearson's product-moment correlation
+
+data:  tcga$curated_gln_z and tcga$curated_ifng_z
+t = -7.6315, df = 467, p-value = 1.317e-13
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4111384 -0.2499817
+sample estimates:
+       cor 
+-0.3329896 
+
+
+Log-rank test:
+Call:
+survdiff(formula = Surv(os_time, os_event) ~ conflict_group, 
+    data = tcga_os)
+
+                                      N Observed Expected (O-E)^2/E (O-E)^2/V
+conflict_group=Low Gln / High IFNG  149       58     82.8      7.43     12.21
+conflict_group=High Gln / High IFNG  79       29     37.4      1.89      2.31
+conflict_group=Low Gln / Low IFNG    78       46     33.2      4.94      5.89
+conflict_group=High Gln / Low IFNG  147       80     59.6      6.99      9.90
+
+ Chisq= 21.4  on 3 degrees of freedom, p= 9e-05 
+p = 8.534566e-05 
+
+Cox models:
+# A tibble: 23 × 8
+   model                      n events term  estimate conf.low conf.high p.value
+   <chr>                  <int>  <dbl> <chr>    <dbl>    <dbl>     <dbl>   <dbl>
+ 1 Unadjusted               453    213 gln_z    1.000    0.857     1.17  9.98e-1
+ 2 Unadjusted               453    213 ifng…    0.685    0.592     0.792 3.33e-7
+ 3 Unadjusted               453    213 gln_…    1.06     0.919     1.23  4.09e-1
+ 4 Clinical covariates      417    194 gln_z    0.966    0.822     1.13  6.73e-1
+ 5 Clinical covariates      417    194 ifng…    0.648    0.555     0.757 4.89e-8
+ 6 Clinical covariates      417    194 age10    1.25     1.14      1.39  8.33e-6
+ 7 Clinical covariates      417    194 gend…    0.963    0.712     1.30  8.05e-1
+ 8 Clinical covariates      417    194 stag…    1.78     1.33      2.39  1.13e-4
+ 9 Clinical covariates      417    194 gln_…    1.03     0.882     1.20  7.28e-1
+10 Clinical + purity/sam…   409    190 gln_z    0.951    0.807     1.12  5.45e-1
+# ℹ 13 more rows
+
+Incremental model comparison:
+                                      model   n events parameters      AIC
+1                  Clinical covariates only 417    194          3 1936.809
+2                           Clinical + IFNG 417    194          4 1905.582
+3               Clinical + IFNG + glutamine 417    194          5 1907.330
+4 Clinical + IFNG + glutamine + interaction 417    194          6 1909.208
+  concordance concordance_se incremental_lrt_p
+1   0.6357367     0.02249702                NA
+2   0.6907087     0.02058297      8.201171e-09
+3   0.6908805     0.02051505      6.158211e-01
+4   0.6909542     0.02043737      7.273026e-01
+
+Proportional hazards tests:
+                                      model                         term
+1                                Unadjusted                        gln_z
+2                                Unadjusted                       ifng_z
+3                                Unadjusted                 gln_z:ifng_z
+4                                Unadjusted                       GLOBAL
+5                       Clinical covariates                        gln_z
+6                       Clinical covariates                       ifng_z
+7                       Clinical covariates                        age10
+8                       Clinical covariates                       gender
+9                       Clinical covariates                        stage
+10                      Clinical covariates                 gln_z:ifng_z
+11                      Clinical covariates                       GLOBAL
+12            Clinical + purity/sample type                        gln_z
+13            Clinical + purity/sample type                       ifng_z
+14            Clinical + purity/sample type                        age10
+15            Clinical + purity/sample type                       gender
+16            Clinical + purity/sample type                        stage
+17            Clinical + purity/sample type                       purity
+18            Clinical + purity/sample type                  sample_type
+19            Clinical + purity/sample type                 gln_z:ifng_z
+20            Clinical + purity/sample type                       GLOBAL
+21 Curated signatures + clinical covariates                curated_gln_z
+22 Curated signatures + clinical covariates               curated_ifng_z
+23 Curated signatures + clinical covariates                        age10
+24 Curated signatures + clinical covariates                       gender
+25 Curated signatures + clinical covariates                        stage
+26 Curated signatures + clinical covariates curated_gln_z:curated_ifng_z
+27 Curated signatures + clinical covariates                       GLOBAL
+         chisq df          p
+1   1.06196978  1 0.30276635
+2   2.72679584  1 0.09867708
+3   0.07714508  1 0.78120425
+4   2.93075936  3 0.40242438
+5   0.87449441  1 0.34971406
+6   4.26297689  1 0.03895161
+7   0.24861150  1 0.61805446
+8   0.90027331  1 0.34270844
+9   3.78768022  1 0.05163116
+10  0.18226972  1 0.66942989
+11 10.73995492  6 0.09675369
+12  0.55457995  1 0.45645235
+13  3.84121595  1 0.05000724
+14  0.13607929  1 0.71221026
+15  1.03555356  1 0.30885785
+16  4.19344611  1 0.04058053
+17  0.03037953  1 0.86163187
+18  0.53401301  1 0.46492458
+19  0.09524898  1 0.75760731
+20 11.63808534  8 0.16809670
+21  0.86628968  1 0.35198453
+22  2.83475952  1 0.09224461
+23  0.17947475  1 0.67182502
+24  0.52324703  1 0.46945987
+25  3.25195130  1 0.07133848
+26  1.01903715  1 0.31274751
+27  8.02261409  6 0.23645122
+
+Time-split IFNG sensitivity model:
+# A tibble: 8 × 8
+  term        estimate std.error robust.se statistic  p.value conf.low conf.high
+  <chr>          <dbl>     <dbl>     <dbl>     <dbl>    <dbl>    <dbl>     <dbl>
+1 gln_z          0.963    0.0826    0.0739    -0.515  6.07e-1    0.833     1.11 
+2 ifng_z         0.604    0.110     0.107     -4.69   2.70e-6    0.490     0.746
+3 time_perio…   NA        0         0         NA     NA         NA        NA    
+4 age10          1.25     0.0506    0.0509     4.45   8.53e-6    1.14      1.39 
+5 genderMale     0.964    0.154     0.162     -0.227  8.20e-1    0.701     1.32 
+6 stageLate …    1.78     0.150     0.154      3.75   1.74e-4    1.32      2.41 
+7 ifng_z:tim…    1.15     0.149     0.144      0.968  3.33e-1    0.867     1.52 
+8 gln_z:ifng…    1.02     0.0780    0.0728     0.283  7.77e-1    0.885     1.18 
+
+Fisher exact test:
+
+	Fisher's Exact Test for Count Data
+
+data:  response_table
+p-value = 0.7849
+alternative hypothesis: two.sided
+
+
+Firth logistic models:
+                                            model           term odds_ratio
+1                 Candidate signatures - additive    (Intercept)  0.2702898
+2                 Candidate signatures - additive          gln_z  0.6970699
+3                 Candidate signatures - additive         ifng_z  1.1350301
+4  Candidate signatures - exploratory interaction    (Intercept)  0.2480133
+5  Candidate signatures - exploratory interaction          gln_z  0.7320022
+6  Candidate signatures - exploratory interaction         ifng_z  1.0166912
+7  Candidate signatures - exploratory interaction   gln_z:ifng_z  0.6802138
+8                   Curated signatures - additive    (Intercept)  0.2754420
+9                   Curated signatures - additive  curated_gln_z  0.9820093
+10                  Curated signatures - additive curated_ifng_z  1.3615653
+    conf.low conf.high      p.value
+1  0.1277688 0.5136310 2.712627e-05
+2  0.3217547 1.4047944 3.186202e-01
+3  0.5637817 2.3513142 7.219591e-01
+4  0.1041201 0.4926339 2.009384e-05
+5  0.3198741 1.5980876 4.272318e-01
+6  0.4356798 2.2097809 9.668634e-01
+7  0.2787336 1.4255244 3.232492e-01
+8  0.1325784 0.5191488 2.963896e-05
+9  0.4632843 1.9759129 9.597241e-01
+10 0.6530119 2.9233010 4.068540e-01
+
+LOOCV AUC: 0.3564103 95% bootstrap CI 0.1564103 0.5564103 
