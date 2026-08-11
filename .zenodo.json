@@ -9,7 +9,7 @@
   ],
   "title": "Cellular Composition Accounts for Much of the Bulk Glutamine–IFN-γ Transcriptional Axis in Melanoma: Analysis Code and Results",
   "description": "Reproducible R analysis, machine-readable results, and figures supporting a cross-cohort and patient-level single-cell evaluation of glutamine-associated and IFN-γ-associated transcription in melanoma.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "access_right": "open",
   "related_identifiers": [
     {
